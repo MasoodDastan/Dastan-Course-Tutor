@@ -9,7 +9,7 @@ INSTRUCTOR  = "Dr. Seyedmasood Dastan"
 CLASS_PASSWORD = "miners2026"   # Change each semester
 
 # ─── Date Range (tutor only works during the semester) ─────────────────────────
-START_DATE = date(2026, 6, 8)
+START_DATE = date(2026, 5, 21)  # TESTING — change back to date(2026, 6, 8) before deploying
 END_DATE   = date(2026, 7, 7)   # One day after final deadline
 
 # ─── Model ─────────────────────────────────────────────────────────────────────

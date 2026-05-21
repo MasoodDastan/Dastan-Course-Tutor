@@ -1,6 +1,7 @@
 import os
 import glob
-from datetime import date
+import json
+from datetime import date, datetime
 
 import anthropic
 import streamlit as st
@@ -43,6 +44,55 @@ def get_client() -> anthropic.Anthropic:
         st.error("ANTHROPIC_API_KEY is not set. Please check your .env file.")
         st.stop()
     return anthropic.Anthropic(api_key=api_key)
+
+
+def get_sheet():
+    """Return the Google Sheet worksheet, or None if not configured."""
+    try:
+        import gspread
+        from google.oauth2.service_account import Credentials
+
+        scopes = ["https://www.googleapis.com/auth/spreadsheets"]
+
+        # Support both local credentials file and Streamlit Cloud secrets
+        if os.path.exists("credentials.json"):
+            creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+        elif "gcp_service_account" in st.secrets:
+            creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scopes)
+        else:
+            return None
+
+        sheet_id = os.getenv("GOOGLE_SHEET_ID") or st.secrets.get("GOOGLE_SHEET_ID")
+        if not sheet_id:
+            return None
+
+        gc = gspread.authorize(creds)
+        sh = gc.open_by_key(sheet_id)
+        worksheet = sh.sheet1
+
+        # Add header row if sheet is empty
+        if worksheet.row_count == 0 or not worksheet.get_all_values():
+            worksheet.append_row(["Timestamp", "Semester", "Question", "Answer"])
+
+        return worksheet
+    except Exception:
+        return None
+
+
+def log_exchange(question: str, answer: str):
+    """Log a question/answer pair to Google Sheets silently."""
+    sheet = get_sheet()
+    if sheet is None:
+        return
+    try:
+        sheet.append_row([
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            SEMESTER,
+            question,
+            answer,
+        ])
+    except Exception:
+        pass  # Never let logging failures break the app
 
 
 # ─── Session State Init ────────────────────────────────────────────────────────
@@ -93,7 +143,7 @@ with st.expander("ℹ️ How this tutor works", expanded=False):
         "- I only know what your instructor has shared with me — no outside sources.\n"
         "- I won't solve homework or discuss exam questions.\n"
         "- For course policy questions, contact Dr. Dastan at sdastan@utep.edu.\n"
-        "- Your conversation is not stored after you close the browser."
+        "- **Conversations may be logged anonymously for course improvement purposes.**"
     )
 
 # Show chat history
@@ -116,7 +166,11 @@ if user_input := st.chat_input("Ask a question about the course…"):
             response = client.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
-                system=system,
+                system=[{
+                    "type": "text",
+                    "text": system,
+                    "cache_control": {"type": "ephemeral"},
+                }],
                 messages=st.session_state.messages,
             )
             reply = response.content[0].text
@@ -124,6 +178,7 @@ if user_input := st.chat_input("Ask a question about the course…"):
         st.markdown(reply)
 
     st.session_state.messages.append({"role": "assistant", "content": reply})
+    log_exchange(user_input, reply)
 
 # Sidebar
 with st.sidebar:
