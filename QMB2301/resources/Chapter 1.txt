@@ -1,0 +1,248 @@
+--- Slide 1 ---
+Business Analytics, 5e
+Chapter 1 – Introduction to Business Analytics
+--- Slide 2 ---
+Chapter Contents
+1.1 	Decision Making
+1.2 	Business Analytics Defined
+1.3 	A Categorization of Analytical Methods and Models
+1.4 	Big Data, the Cloud, and Artificial Intelligence
+1.5 	Business Analytics in Practice
+1.6 	Legal and Ethical Issues in the Use of Data and Analytics
+Summary
+--- Slide 3 ---
+Learning Objectives
+After completing this chapter, you will be able to:
+LO 1-1 	Identify strategic, tactical, and operational decisions.
+LO 1-2 	Describe the steps in the decision-making process.
+LO 1-3 	Identify examples of descriptive, predictive, and prescriptive analytics.
+LO 1-4 	Describe applications of analytics for decision making.
+--- Slide 4 ---
+Introduction
+The purpose of this book is to provide
+a sound conceptual understanding of the role that business analytics plays in the decision-making process, and
+a better understanding of successful applications of analytical methods.
+Three developments spurred recent explosive growth in the use of analytical methods in business applications.
+The tracking and storing of large amounts of data.
+Methodological developments to extract knowledge from data.
+An explosion in computing power.
+--- Slide 5 ---
+1.1 Managers’ Responsibilities in Decision Making
+Strategic decisions involve higher-level issues concerned with the overall direction of the organization.
+Define the organization’s overall goals and aspirations for the future.
+Tactical decisions concern how the organization should achieve the goals and objectives set by its strategy.
+Usually the responsibility of midlevel management.
+Operational decisions affect how the firm is run from day to day.
+The domain of operations managers, who are the closest to the customer.
+--- Slide 6 ---
+1.1 The Decision-Making Process
+The following five steps define the decision-making process:
+Identify and define the problem.
+Determine the criteria that will be used to evaluate alternative solutions.
+Determine the set of alternative solutions.
+Evaluate the alternatives.
+Choose an alternative.
+Common approaches to making decisions include
+tradition
+intuition
+rules of thumb
+using the relevant data available
+--- Slide 7 ---
+1.2 Business Analytics Defined
+Business analytics is the scientific process of transforming data into insight for making better decisions.
+The use of data-driven or fact-based decision making is often seen as more objective than other decision-making alternatives.
+Tools of business analytics can aid in decision making by
+creating insights from data,
+improving our ability to forecast for planning more accurately,
+helping us quantify risk, and
+yielding better alternatives through analysis and optimization.
+--- Slide 8 ---
+1.3 Descriptive Analytics
+Descriptive analytics encompasses the set of techniques that describes what has happened in the past.
+Descriptive analytics techniques include
+data queries
+reports
+descriptive statistics
+data visualization (including data dashboards)
+unsupervised learning techniques from data mining
+basic spreadsheet models
+--- Slide 9 ---
+1.3 Examples of Descriptive Analytics Techniques
+A data query requests information with certain characteristics from a database.
+A report resulting from a query may include descriptive statistics and data visualizations to find patterns or relationships in a large database.
+Data dashboards are collections of tables, charts, maps, and summary statistics updated as new data becomes available.
+Data mining unsupervised learning techniques.
+An unsupervised learning technique is a descriptive method that seeks to identify patterns in different types of data that are based on notions of
+similarity (cluster analysis)
+correlation (association rules)
+--- Slide 10 ---
+1.3 Predictive Analytics
+Predictive analytics consists of techniques that use models constructed from past data to predict the future or ascertain the impact of one variable on another.
+Predictive analytics includes
+linear regression and time series analysis,
+data mining supervised learning techniques,
+Supervised learning techniques use past data to find patterns or relationships among data elements in a large database.
+simulation, which involves using probability and statistics to construct a computer model to study the impact of uncertainty on a decision.
+--- Slide 11 ---
+1.3 Prescriptive Analytics
+Prescriptive analytics indicates a course of action to take.
+A predictive model provides a forecast or prediction, not a decision.
+A prescriptive model is a predictive model combined with a rule.
+Prescriptive models that rely on a rule or set of rules are often called rule-based models.
+Other examples of prescriptive analytics are
+portfolio models in finance,
+supply network design models in operations, and
+price-markdown models in retailing.
+--- Slide 12 ---
+1.3 Examples of Prescriptive Analytics Techniques
+Models that give the best decision subject to the constraints of the situation are known as optimization models.
+Simulation optimization combines probability and statistics to model uncertainty with optimization techniques and find good decisions in highly complex and uncertain settings.
+Decision analysis is used to develop an optimal strategy when a decision maker faces several decision alternatives and an uncertain set of future events.
+Utility theory is a branch of decision analysis that assigns values to outcomes based on the decision maker’s attitude toward risk.
+--- Slide 13 ---
+1.3 Coverage of Business Analytics in This Text
+--- Slide 14 ---
+1.4 Big Data
+Big data is any set of data that is too large or too complex to be handled by standard data-processing techniques and typical desktop software.
+IBM describes the phenomenon of big data through the four Vs:
+volume, velocity, variety, and veracity (see next slide.)
+The challenges of big data, in terms of data storage and processing, security, and available analytical talent, led to the development of new technologies:
+Hadoop is an open-source programming environment that supports big data processing through distributed storage and cloud computing.
+MapReduce is a programming model used within Hadoop that performs two major steps: the map step and the reduce step.
+--- Slide 15 ---
+1.4 The Four Vs of Big Data
+--- Slide 16 ---
+1.4 Cloud Computing and Data Security
+The massive amounts of available data have led to numerous innovations that help make the data useful for decision-making.
+Cloud computing (“the cloud”) refers to the use of data and software on servers housed externally to an organization via the internet.
+The cloud has made storing and processing massive amounts of data feasible and cost-effective.
+The security of highly confidential data stored on the cloud is critical to companies and must be protected from hackers.
+Data security protects stored data from destructive forces or unauthorized users.
+--- Slide 17 ---
+1.4 Artificial Intelligence and Data Scientists
+Big data has also accelerated the development of applications for artificial intelligence.
+Artificial intelligence (AI) uses big data and computers to make decisions that would have required human intelligence in the past.
+Applications of AI include facial recognition for security checkpoints and self-driving vehicles.
+The complexities of big data have increased the demand for analysts and created challenges due to a shortage of qualified new hires.
+Data scientists are analysts trained in computer science and statistics who know how to process and analyze massive amounts of data.
+--- Slide 18 ---
+1.5 The Spectrum of Business Analytics
+--- Slide 19 ---
+1.5 Financial Analytics
+The financial services sector relies heavily on descriptive, predictive, and prescriptive analytics.
+Descriptive analytics, through data visualization, is used to monitor financial performance, including stock returns, trading volumes, and measures of market return and volatility.
+Predictive models are used to forecast financial performance, assess the risk of investment portfolios and projects, and construct financial instruments such as derivatives.
+Prescriptive models are used to construct optimal portfolios of investments, allocate assets, and create optimal capital budgeting plans.
+--- Slide 20 ---
+1.5 Human Resources (HR) Analytics
+The HR function is charged with ensuring that the organization
+has the mix of skill sets necessary to meet its needs,
+hires the highest-quality talent and provides an environment to retain it,
+achieves its organizational diversity goals.
+Google uses “people analytics” to analyze data on its employees to
+determine the characteristics of great leaders, assess factors contributing to productivity, and evaluate potential new hires.
+Google also uses predictive analytics to continually update its forecast of future employee turnover and retention.
+--- Slide 21 ---
+1.5 Marketing Analytics
+Marketing is one of the fastest-growing areas for the application of analytics.
+The use of scanner data and data generated from social media has led to a better understanding of consumer behavior and increased interest in marketing analytics.
+As a result, descriptive, predictive, and prescriptive analytics are all heavily used in marketing.
+Predictive models and optimization are used to better align advertising to specific target audiences making marketing efforts more effective and efficient.
+Sentiment analysis allows companies to monitor better “the voice of the customer” and use the data to adjust their services and products.
+--- Slide 22 ---
+1.5 Health Care Analytics
+The use of analytics in health care is increasing because of pressure to control costs and provide more effective treatment simultaneously.
+Descriptive, predictive, and prescriptive analytics are used to improve
+patient, staff, and facility scheduling,
+patient flow,
+purchasing, and
+inventory control.
+The use of prescriptive analytics for diagnosis and treatment is the most critical application of analytics in health care.
+--- Slide 23 ---
+1.5 Supply-Chain Analytics
+Analytics has long been used to achieve the efficient delivery of goods: the core service of logistic companies.
+To UPS and FedEx, the optimal sorting of goods, vehicle and staff scheduling, and vehicle routing are all key to profitability.
+Supply chain problems caused by the COVID-19 pandemic and world conflicts focused on using analytics to increase the resiliency of the supply chain.
+Descriptive analytics is used to monitor supply chain performance.
+Predictive analytics is used to quantify risk.
+Prescriptive analytics with scenario analysis is used to prepare supply chain solutions that can handle a high degree of disruption.
+--- Slide 24 ---
+1.5 Analytics for Government and Nonprofit Agencies
+Government agencies use analytics to increase the effectiveness and accountability of programs.
+The U.S. Internal Revenue Service uses data mining to identify patterns that distinguish questionable annual personal income tax filings.
+Likewise, nonprofit agencies use analytics to ensure their effectiveness and accountability to donors and clients.
+Descriptive and predictive analytics monitor agency performance, track donor behavior, and forecast donations.
+Data mining helps identify potential donors and minimize donor attrition.
+Optimization allocates scarce resources in capital budgeting.
+--- Slide 25 ---
+1.5 Sports Analytics
+Professional sports teams use analytics to
+assess players for the amateur drafts,
+decide how much to offer players in contract negotiations, and
+assist with on-field decisions.
+Sports franchises also use analytics for off-the-field business decisions.
+Based on fan survey data, a predictive technique known as conjoint analysis is used to design stadium premium seating.
+Prescriptive analytics is used to adjust ticket prices throughout the season dynamically.
+--- Slide 26 ---
+1.5 Web Analytics
+The analysis of online activity includes, but is not limited to, visits to websites and social media sites such as Facebook and LinkedIn.
+Leading companies apply descriptive and advanced analytics to data collected in online experiments to determine the best way to
+configure websites,
+position ads, and
+utilize social networks to promote products and services.
+Because of the massive pool of Internet users, experiments can be conducted without risking disrupting the company’s overall business.
+--- Slide 27 ---
+1.6 Ethical Issues in the Use of Data and Analytics
+Increased attention has been paid to ethical concerns around data privacy and the ethical use of models based on data.
+Clients and customers must understand the trade-offs between allowing their data to be collected and the benefits they accrue from allowing a company to collect and use that data.
+An agreement must be signed between the customer and the company.
+Companies have an obligation to uphold that agreement and make every effort to ensure that the data are protected from data breaches.
+Data breaches, defined as unauthorized uses of data, are a major concern for all companies.
+--- Slide 28 ---
+1.6 Legal Issues in the Use of Data and Analytics
+The General Data Protection Regulation (GDPR), one of the strictest privacy laws that went into effect in the European Union in May 2018, stipulates that
+the request for consent to use an individual’s data must be easily understood and accessible,
+the intended use of data must be specified and easy to withdraw consent, and
+the individual has a right to a copy of their data and the right to demand their data be erased.
+It is the responsibility of analytics professionals to understand the laws associated with collecting, storing, and using individuals’ data.
+--- Slide 29 ---
+1.6 INFORMS Ethics Guidelines Relative to Society
+Analytics professionals should aspire to be
+accountable for their professional actions and the impact of their work,
+forthcoming about their assumptions, interests, sponsors, motivations, limitations, and potential conflicts of interest,
+honest in reporting their results, even when they fail to yield the desired outcome,
+objective in their assessments of facts, irrespective of their opinions or beliefs,
+respectful of the viewpoints and the values of others, and
+responsible for undertaking research and projects that provide positive benefits by
+advancing our scientific understanding
+contributing to organizational improvements, and
+supporting social good.
+--- Slide 30 ---
+1.6 INFORMS Ethics Guidelines Relative to Organizations
+Analytics professionals should aspire to be
+accurate in our assertions, reports, and presentations,
+alert to possible unintended or negative consequences that our results and recommendations may have on others,
+informed of advances and developments in the fields relevant to our work,
+questioning whether there are more effective and efficient ways to reach a goal,
+realistic in our claims of achievable results and in acknowledging when the best course of action may be to terminate a project,
+rigorous by adhering to proper professional practices in the development and reporting of our work.
+--- Slide 31 ---
+1.6 INFORMS Ethics Guidelines Relative to the Profession
+Analytics professionals should aspire to be
+cooperative by sharing best practices, information, and ideas with colleagues, young professionals, and students,
+impartial in our praise or criticism of others and their accomplishments, setting aside personal interests,
+inclusive of all colleagues and rejecting discrimination and harassment in any form,
+tolerant of well-conducted research and well-reasoned results, which may differ from our own findings or opinions,
+truthful in providing attribution when our work draws from the ideas of others,
+vigilant by speaking out against actions that are damaging to the profession.
+--- Slide 32 ---
+Summary
+This introductory chapter began with a discussion of decision-making.
+Decisions may be strategic, tactical, or operational.
+Business analytics can help us make better-informed decisions.
+There are three categories of analytics:
+descriptive, predictive, and prescriptive.
+Big data is data that is too large for typical desktop software to handle.
+Cloud computing has made storing and processing vast amounts of data more efficient and cost-effective.
+We also discussed various application areas of analytics.
+We concluded the chapter with a discussion of legal and ethical issues in the use of data and analytics.

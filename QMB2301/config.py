@@ -3,7 +3,7 @@ from datetime import date
 # ─── Course Settings ───────────────────────────────────────────────────────────
 COURSE_NAME = "QMB 2301 – Business Stats and Analytics I"
 SEMESTER    = "Summer 2026"
-INSTRUCTOR  = "Dr. Seyedmasood Dastan"
+INSTRUCTOR  = "Dr. Masood Dastan"
 
 # ─── Access Control ────────────────────────────────────────────────────────────
 CLASS_PASSWORD = "miners2026"   # Change each semester
