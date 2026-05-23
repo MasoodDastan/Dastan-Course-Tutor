@@ -4,5 +4,11 @@ credentials.json
 __pycache__/
 *.pyc
 .DS_Store
-resources/*.pptx
-resources/~$*
+**/resources/*.pptx
+**/resources/~$*
+QMB2301/assets/maya.png
+QMB2301/assets/maya_lorelei.png
+QMB2301/assets/maya_micah.png
+QMB2301/assets/maya_adventurer.png
+QMB2301/assets/maya_personas.png
+QMB2301/assets/maya_sofia.png
