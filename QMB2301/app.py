@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 import extra_streamlit_components as stx
 from PIL import Image
 
-from config import (CLASS_PASSWORD, COURSE_NAME, END_DATE,
-                    INSTRUCTOR, MAX_TOKENS, MODEL, SEMESTER, START_DATE)
+from config import (CLASS_PASSWORD, COURSE_NAME, END_DATE, INSTRUCTOR,
+                    MAX_TOKENS, MODEL, REQUIRE_PASSWORD, SEMESTER, START_DATE)
 from system_prompt import build_system_prompt
 
 load_dotenv()
@@ -88,7 +88,7 @@ cookie_manager = stx.CookieManager()
 auth_cookie = cookie_manager.get(COOKIE_NAME)
 
 if "authenticated" not in st.session_state:
-    st.session_state.authenticated = (auth_cookie == CLASS_PASSWORD)
+    st.session_state.authenticated = (not REQUIRE_PASSWORD) or (auth_cookie == CLASS_PASSWORD)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -106,7 +106,7 @@ if not is_within_semester():
 
 
 # ─── Password Gate ─────────────────────────────────────────────────────────────
-if not st.session_state.authenticated:
+if REQUIRE_PASSWORD and not st.session_state.authenticated:
     st.title("Hi, I'm Maya! 👋")
     st.caption(f"{COURSE_NAME}")
     st.write("Enter the class password to get started.")

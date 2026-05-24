@@ -6,7 +6,8 @@ SEMESTER    = "Summer 2026"
 INSTRUCTOR  = "Dr. Masood Dastan"
 
 # ─── Access Control ────────────────────────────────────────────────────────────
-CLASS_PASSWORD = "miners2026"   # Change each semester
+REQUIRE_PASSWORD = False          # Set to True to enable password gate
+CLASS_PASSWORD   = "miners2026"   # Change each semester
 
 # ─── Date Range (tutor only works during the semester) ─────────────────────────
 START_DATE = date(2026, 5, 21)  # TESTING — change back to date(2026, 6, 8) before deploying
