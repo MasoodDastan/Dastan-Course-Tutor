@@ -1,0 +1,227 @@
+--- Slide 1 ---
+Business Analytics, 5e
+Chapter 2 – Descriptive Statistics
+--- Slide 2 ---
+Chapter Contents
+2.1 	Overview of Using Data: Definitions and Goals
+2.2 	Types of Data
+2.3	Exploring Data in Excel
+2.4 	Creating Distributions from Data
+2.5 	Measures of Location
+2.6 	Measures of Variability
+2.7 	Analyzing Distributions
+2.8 	Measures of Association Between Two Variables
+Summary
+--- Slide 3 ---
+Learning Objectives (1 of 3)
+After completing this chapter, you will be able to:
+LO 2-1 	Identify and describe different data types, including population and sample data, quantitative and categorical data, and cross-sectional and time-series data.
+LO 2-2 	Generate insights through sorting, filtering, and conditional formatting data.
+LO 2-3 	Construct and interpret frequency, relative frequency, and percent frequency distributions for categorical data.
+LO 2-4 	Construct and interpret frequency, relative frequency, and percent frequency distributions for quantitative data.
+LO 2-5 	Construct and interpret histograms and frequency polygons to visualize the distribution of quantitative data.
+--- Slide 4 ---
+Learning Objectives (2 of 3)
+LO 2-6 	Construct and interpret cumulative frequency, cumulative relative frequency, and cumulative percent frequency distributions for quantitative data.
+LO 2-7 	Interpret the shape of a distribution of data and identify positive skewness, negative skewness, and symmetric distributions.
+LO 2-8 	Calculate and interpret measures of location such as the mean, median, geometric mean, and mode.
+LO 2-9 	Calculate and interpret measures of variability such as the range, variance, standard deviation, and coefficient of variation.
+LO 2-10 	Analyze and interpret distributions of data using percentiles, quartiles, z-scores, and the empirical rule.
+--- Slide 5 ---
+Learning Objectives (3 of 3)
+LO 2-11 	Identify outliers in a set of data.
+LO 2-12 	Construct and interpret a boxplot.
+LO 2-13 	Create and interpret a scatter chart for two quantitative variables.
+LO 2-14 	Calculate and interpret the covariance and correlation coefficient for two quantitative variables.
+--- Slide 6 ---
+2.1 Overview of Using Data: Definitions and Goals
+Data are the facts and figures collected, analyzed, and summarized for presentation and interpretation.
+A variable is a characteristic or a quantity of interest that can take on different values.
+An observation is a set of values corresponding to a set of variables.
+Variation is the difference in a variable measured over observations.
+The role of descriptive analytics is to collect and analyze data to better understand variation and its impact on the business setting.
+A random variable, or uncertain variable, is a quantity whose values are not known with certainty.
+--- Slide 7 ---
+2.2 Types of Data
+A sample is a subset of the population, which consists of all the elements of interest.
+Random sampling is a sampling method that allows gathering a representative sample from the population data.
+Data are considered quantitative data if numeric and arithmetic operations, such as addition, subtraction, multiplication, and division, can be performed.
+If arithmetic operations cannot be performed, they are categorical data.
+Cross-sectional data are data collected from several entities at the same, or approximately the same, point in time.
+Time series data are data collected over several time periods.
+--- Slide 8 ---
+2.2 Sources of Data
+Data necessary to analyze a business problem can often be obtained with a statistical study.
+Statistical studies can be classified as experimental or observational.
+In an experimental study, a variable of interest is first identified.
+Then, one or more other variables are identified and controlled or manipulated to obtain data about how they influence the variable of interest.
+A nonexperimental or observational study does not attempt to control the variables of interest.
+A survey is perhaps the most common type of observational study.
+--- Slide 9 ---
+2.3 Sorting Data in Excel
+DATAfile top20vehicles2021 contains 2020 and 2021 sales for the 20 top-selling vehicles in the United States. The data are sorted by 2021 sales.
+Column F contains the percentage of sales from 2020.
+Cell F2 is calculated as:
+=(D2−E2)/D2
+To sort the data by 2020 sales, follow the steps included in the notes.
+--- Slide 10 ---
+2.3 Filtering Data in Excel
+Now let’s suppose that we are interested only in seeing the sales of models made by Toyota.
+To view only Toyota models, use Excel’s Filter function as shown in the notes.
+--- Slide 11 ---
+2.3 Conditional Formatting in Excel
+Conditional formatting makes it easy to identify data that satisfy certain conditions in a data set.
+To identify the models for which sales decreased from 2020 to 2021, follow the steps shown in the notes.
+See the text for an example of using conditional formatting to generate data bars for the top-selling vehicles.
+--- Slide 12 ---
+2.4 Frequency Distributions for Categorical Data
+A frequency distribution is a summary of data showing the number (frequency) of observations in several nonoverlapping classes, typically referred to as bins.
+DATAfile: softdrinks
+We obtain the frequency distribution of soft drink purchases shown in cell range D2:E6 by counting the number of times each soft drink appears in the data (follow the steps included in the notes.)
+The frequency distribution in cell range D2:E6 summarizes how the 50 soft drink purchases are distributed across the five soft drinks.
+--- Slide 13 ---
+2.4 Relative Frequency and Percent Frequency Distributions
+A relative frequency distribution is a tabular summary of data showing the relative frequency for each bin.
+A percent frequency distribution summarizes the percent frequency of the data for each bin.
+It can be used to provide estimates of the relative likelihoods of different values of a random variable.
+--- Slide 14 ---
+2.4 Frequency Distributions for Quantitative Data
+--- Slide 15 ---
+2.4 Frequency Distribution for the Age of Death Data
+--- Slide 16 ---
+2.4 Histograms
+A Histogram is a common graphical presentation of quantitative data.
+A histogram is constructed by placing the variable of interest on the horizontal axis and the selected frequency measure (absolute frequency, relative frequency, or percent frequency) on the vertical axis.
+The frequency measure of each class is shown by drawing a rectangle whose base is the class limits on the horizontal axis and whose height is the corresponding frequency measure.
+A histogram is a column chart with no spaces between the columns whose heights represent the frequencies of the corresponding bins.
+Eliminating the space between the columns allows a histogram to reflect the continuous nature of the variable of interest.
+--- Slide 17 ---
+2.4 Histogram for the Age of Death Data
+A histogram can be automatically generated using Excel’s Charts functionality.
+Select cell range A1-A701, and click the Insert Statistics Chart button located in the Charts group of the Insert Tab.
+Excel automatically chooses to use 16 bins, each spanning 7 years, traversing the range from 0 to 112.
+The notes show how to generate a histogram manually from a column chart.
+Use of the function CONCAT allows to generate the horizontal labels.
+--- Slide 18 ---
+2.4 Frequency Polygons
+A frequency polygon is useful for comparing quantitative distributions.
+A frequency polygon uses lines to connect the frequency counts of observations from different bins.
+DATAfile: agedeath_sex
+The data set contains the same ages for 700 individuals we saw before, but the top 327 observations are from individuals who self-identify as females and the bottom 373 as males.
+The notes show how to generate a frequency polygon in Excel.
+--- Slide 19 ---
+2.4 Cumulative Distributions
+A cumulative frequency distribution is a variation of the frequency distribution that provides another tabular summary of quantitative data.
+It uses the number of classes, class widths, and class limits developed for the frequency distribution.
+Shows the number of data items with values less than or equal to the upper-class limit of each class.
+The table to the right shows the cumulative distributions for the age of death data.
+--- Slide 20 ---
+2.4 Histograms Showing Differing Levels of Skewness
+Histograms provide information about the shape, or form, of a distribution.
+Skewness, or lack of symmetry, is an important characteristic of the shape of a distribution.
+The four histograms shown below are constructed from relative frequency distributions that exhibit different patterns of skewness.
+--- Slide 21 ---
+2.5 Mean
+--- Slide 22 ---
+2.5 Median
+--- Slide 23 ---
+2.5 Mode
+The mode of a data set is the value that occurs with the greatest frequency.
+In Excel, we can find the mode using the MODE.SNGL function.
+The greatest frequency may occur at two or more different values. In these instances, more than one mode exists.
+If the data have exactly two modes, the data are said to be bimodal.
+If the data have more than two modes, the data are said to be multimodal.
+In Excel, we can find multiple modes using the MODE.MULT function.
+For the home sales data, =MODE.MULT(B2:B13) returns two modes.
+--- Slide 24 ---
+2.5 Geometric Mean
+--- Slide 25 ---
+2.5 An Application of the Geometric Mean
+--- Slide 26 ---
+2.6 Measures of Variability
+It is often desirable to consider measures of variability, or dispersion).
+Consider the annual payouts for two different investment funds, A and B.
+Although the mean payout is the same for the two funds, their histograms differ because the payouts associated with Fund B have greater variability.
+In this section, we present several ways to measure variability.
+--- Slide 27 ---
+2.6 Range
+--- Slide 28 ---
+2.6 Variance
+--- Slide 29 ---
+2.6 Computation of the Variance
+--- Slide 30 ---
+2.6 Standard Deviation
+--- Slide 31 ---
+2.6 Coefficient of Variation
+--- Slide 32 ---
+2.7 Percentiles
+--- Slide 33 ---
+2.7 An Application of the Percentile
+With the home sales data arranged in ascending order, we indicate the position of each observation directly below its value.
+--- Slide 34 ---
+2.7 Quartiles
+--- Slide 35 ---
+2.7 An Application of Quartiles
+--- Slide 36 ---
+2.7 z-Scores
+--- Slide 37 ---
+2.7 Empirical Rule
+When the data are believed to approximate a symmetric bell-shaped distribution, the empirical rule can be used to determine the percentage of data values within a specified number of standard deviations of the mean.
+For data having a bell-shaped distribution:
+~68% of the data values will be within one standard deviation of the mean.
+~95% of the data values will be within two standard deviations of the mean.
+Almost all data values will be within three standard deviations of the mean.
+If the height of adult males in the U.S. follows a bell-shaped distribution, with a mean of 69.5 inches and a standard deviation of 3 inches:
+~95% of U.S. adult males will have heights between 63.5 and 75.5 inches.
+--- Slide 38 ---
+2.7 Identifying Outliers
+An outlier is an unusually small or unusually large value in a data set.
+Care should be taken when handling outliers, as they might be:
+an incorrectly recorded data value
+a data value that was incorrectly included in the data set
+a correctly recorded data value that belongs in the data set
+Standardized values (z-scores) can be used to identify potential outliers.
+A data value with a z-score less than –3 or greater than +3 might be a candidate for being an outlier (see notes for details.)
+Such data values can then be reviewed to determine their accuracy and whether they belong in the data set.
+--- Slide 39 ---
+2.7 Boxplots
+A boxplot, also known as box-and-whisker plot, is a graphical summary of the distribution of data developed from the quartiles for a data set.
+Shown to the right is the boxplot for the home sales data containing a single outlier.
+See notes for the steps needed to create a boxplot in Excel.
+--- Slide 40 ---
+2.7 Boxplots Comparing Home Sales Prices in Different Communities
+Boxplots are also very useful for comparing different data sets.
+DATAfile: homesalescomparison
+For instance, if we want to compare home sales from several communities, we could create boxplots for recent home sales in each community.
+An example of such boxplots is shown to the right.
+Insight is summarized in the notes.
+--- Slide 41 ---
+2.7 Boxplot Created in Excel for the Home Sales Data
+See notes for the steps in Excel.
+--- Slide 42 ---
+2.8 Scatter Charts
+A scatter chart is a graph for analyzing the relationship between two variables.
+DATAfile: bottledwater
+The scatter chart for the bottled water sales at Queensland Amusement Park over 14 summer days suggests a
+positive and linear relationship
+between high temperature and bottled water sales.
+--- Slide 43 ---
+2.8 Covariance
+--- Slide 44 ---
+2.8 Relationship Between Pattern and Covariance
+--- Slide 45 ---
+2.8 Correlation Coefficient
+--- Slide 46 ---
+2.8 Interpretation of the Correlation Coefficient
+--- Slide 47 ---
+2.8 A Note on Linear Association
+The correlation coefficient measures only the strength of the linear association
+--- Slide 48 ---
+Summary
+In this chapter, we have introduced descriptive statistics to summarize data.
+We began by defining data types and data sources.
+We presented several useful functions for modifying data in Excel.
+We introduced the concept of a distribution and explained how to describe it using different interpretations of the frequency of counts and visualize it.
+We then introduced measures of location, such as mean and median, and variability, such as variance and standard deviation.
+We also presented additional measures for analyzing data distributions.
+Finally, we discussed how to visualize the relationship between two variables and how to measure their linear association using covariance and correlation coefficient.

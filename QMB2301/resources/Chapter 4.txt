@@ -1,0 +1,216 @@
+--- Slide 1 ---
+Business Analytics, 5e
+Chapter 4 – Data Wrangling: Data Management and Data Cleansing Strategies
+--- Slide 2 ---
+Chapter Contents
+4.1 	Discovery
+4.2 	Structuring
+4.3 	Cleaning
+4.4 	Enriching
+4.5 	Validating and Publishing
+Summary
+--- Slide 3 ---
+Learning Objectives (1 of 2)
+After completing this chapter, you will be able to:
+LO 4-1 	List and explain the steps of data wrangling.
+LO 4-2 	Import raw data from csv, space-delimited, and tab-delimited files.
+LO 4-3 	Reformat stacked data to unstacked data and reformat unstacked data to stacked data.
+LO 4-4 	Split a single field into multiple fields and combine multiple fields into a single field.
+LO 4-5 	Find and count missing values, find extreme values outside of a reasonable range, and find duplicate records.
+--- Slide 4 ---
+Learning Objectives (2 of 2)
+LO 4-6 	Subset data to isolate records with interest values for specific fields.
+LO 4-7 	Add fields and observations to raw data.
+LO 4-8 	Combine data for similar records from multiple files.
+--- Slide 5 ---
+Raw Data and Data Wrangling
+Raw data is data that has not been processed or prepared for analysis.
+Also called source data or primary data.
+Data wrangling is the process of
+cleaning, transforming, and managing
+raw data so that it is more reliable and can be more easily accessed and used for analysis.
+Also called data munging or data remediation.
+The objective of data wrangling is to produce a final dataset that is
+accurate, reliable, and accessible.
+--- Slide 6 ---
+The Data-Wrangling Activities
+Merging multiple data sources into a single data set.
+Identifying missing values in data and either filling or deleting the record or observation.
+Identifying erroneous values in data and replacing them with the correct values.
+Identifying and deleting duplicate observations or records in data.
+Identifying extreme values in data, determining whether they are legitimate, and taking appropriate action.
+Subsetting data to facilitate analyses and comparisons of subgroups of the raw data.
+--- Slide 7 ---
+The Six Steps of the Data-Wrangling Process
+Discovery: 	become familiar with the raw data and conceptualize its use.
+Structuring: 	arrange the raw data to be more readily analyzed.
+Cleaning: 	find and correct errors in the raw data that might distort the ensuing analyses.
+Enriching: 	incorporate values from other data sets and/or apply transformations to portions of the existing data.
+Validating: 	verify that the wrangled data are accurate, reliable, and ready for the ensuing analyses.
+Publishing: 	create a file containing the wrangled data and documentation and make it available to its intended users.
+--- Slide 8 ---
+4.1 Accessing Data
+Accessing data involves importing the raw data into the software used to wrangle the raw data.
+Raw data come in many formats, including:
+delimited text (txt) files
+comma-separated value (csv) files
+JavaScript Object Notation (JSON) files
+XML files
+Excel (xlsx) files
+databases such as ACCESS, SQL, or ORACLE
+Web pages/HTML files
+--- Slide 9 ---
+4.1 The Format of the Raw Data
+The format of the raw data determines how the data are wrangled.
+Each record is a grouping of characteristics for a particular observation.
+Each field is a characteristic of the observations in a dataset.
+Structured data refers to data arrayed in a predetermined pattern to make them easy to manage and search.
+A flat file is the most common pattern of structured data.
+Data are arrayed as a rectangle, with each row representing an observation or record and each column representing a variable or field.
+Unstructured data are data not arranged in a predetermined pattern.
+Semi-structured data are not organized as structured data but contain elements that allow for isolating some raw data elements.
+--- Slide 10 ---
+4.1 Accessing csv Files Using Excel
+Raw DATAfile: sdeliveries.csv (only top three rows of data are shown)
+Each row in the raw data file represents one record or delivery.
+Fields in each record are separated using delimiters; in this case, commas.
+Displayed below is the formatted data set. See notes for Excel instructions.
+--- Slide 11 ---
+4.1 Accessing tab-Delimited Files Using Excel
+Raw DATAfile: tblpurchaseprices.txt (only top three rows of data are shown)
+Each row in the raw data file represents one microbrewery.
+This data file uses tabs as delimiters. Shown below is the formatted data.
+See notes for Excel instructions on how to use the Text Import Wizard.
+--- Slide 12 ---
+4.2 Data Formatting
+The two primary forms of data are:
+Numeric data allow mathematical operations to be performed on them.
+They generally represent a count or measurement.
+Excel offers several formats for numeric data, including Currency, Accounting, Date, Time, Percentage, and Scientific Notation.
+See notes for instructions on formatting numerical data in Excel.
+Text data can be words, phrases, sentences, or paragraphs.
+They include characters such as alphabetical or numerical (when the numbers are not to be used in mathematical calculations.)
+--- Slide 13 ---
+4.2 Arrangement of Data
+Stacked data are organized so that the values for each variable are stored in a single field.
+*Only the top 10 rows are shown.
+Unstacked data are organized so that the values for one variable correspond to separate fields.
+DATAfile: HS3PA (see notes for instructions)
+--- Slide 14 ---
+4.2 Splitting a Single Field into Multiple Fields
+DATAfile: tblbrewersaddresses (only top three data rows are shown)
+Split the field Address into the fields Street Address, City, State, and Zip Code.
+See notes for Excel instructions on how to split a single field into multiple fields using the Convert Text to Columns Wizard located in the Data Tools group of the Data tab in the Ribbon.
+--- Slide 15 ---
+4.2 Combining Multiple Fields into a Single Field
+DATAfile: names
+Combine the fields Prefix, First Name, Middle Name, Last Name, and Suffix into a single field using the TEXTJOIN function.
+See notes for Excel instructions on combining multiple fields into a single field.
+Once you complete the record in cell F2, you can also fill the remaining records in column F by clicking the Data tab in the Ribbon and then Flash Fill in the Data Tools group.
+--- Slide 16 ---
+4.3 Missing Data
+If a value of a field is missing because of an appropriate reason, we call it legitimately missing data.
+Ex.: a survey question asking whether a male respondent is pregnant.
+Otherwise, we call it illegitimately missing data.
+Remedial action is considered for illegitimately missing data only.
+If the missing value is not found at the original data source, other options are to
+discard records (rows) with any missing values,
+discard any field with missing values,
+fill in missing entries with estimated values, or
+apply a data-mining algorithm that can handle missing values.
+--- Slide 17 ---
+4.3 Types of Missing Data
+A value is said to be missing completely at random (MCAR) when it does not depend on either
+the value of the missing data or
+the value of any other variable in the data.
+A value is said to be missing at random (MAR) when related to the value of some other variable in the data.
+A value is said to be missing not at random (MNAR) when it is related to the value of the missing data.
+Understanding which of these three categories—MCAR, MAR, and MNAR—missing values fall into is critical to properly handling missing data.
+--- Slide 18 ---
+4.3 Remedial Actions for Missing Data
+If the missing values are MCAR or MAR and only affect a few observations:
+Ignore those observations with missing values.
+If a variable has missing values that are MNAR, or the missing values affect several observations,
+do not ignore the involved observations because it would introduce bias.
+If the MNAR-affected variable is redundant, it can be removed.
+If the affected variable cannot be removed,
+imputation – the systematic replacement of missing values with reasonable values – may be considered.
+For MCAR values, the variable’s mean or median is a valid imputation.
+For MAR values, a model predicting the missing values may be built.
+--- Slide 19 ---
+4.3 Identification of Missing Values
+DATAfile: treadwear (only top six data rows are shown)
+See notes on using the function COUNTBLANKS to identify missing data.
+Sorting data on Miles in ascending order, we isolate the missing value for LF tire, ID number 3354942, which we replace using one of the other tires’ miles.
+--- Slide 20 ---
+4.3 Identification of Outliers
+Calculating summary statistics and sorting the data in increasing order by Life of Tire (Months) allow us to quickly identify erroneous outliers.
+Records on the bottom rows 456 and 457 reveal unusually large values.
+See notes for Excel instructions.
+When comparing those unusual values to the corresponding ones for the other three tires, the data entry error is revealed and corrected.
+--- Slide 21 ---
+4.3 Identification of Other Erroneous Values
+We can use the negative relationship between tread depth and miles to identify other erroneous values that are more difficult to identify.
+Any point outside of the red ellipse is inconsistent with the expected relationship.
+The three highlighted tire data points are unusual and warrant further investigation.
+--- Slide 22 ---
+4.3 Identification of Duplicate Records
+We can identify illegitimate duplicate records in Excel using a formula-based manual approach, or, if many, remove them with the Remove Duplicates tool.
+DATAfile: treadwearnew (only top rows shown; see notes for Excel instructions)
+Formula-Based Approach
+Remove Duplicates Tool
+--- Slide 23 ---
+4.4 Enriching Data
+In the enriching step, we use the data-wrangling process steps of discovery, structuring, and cleaning to provide a deeper understanding of the raw data.
+Three aspects of enriching data are considered in this section:
+Subsetting data by extracting fields and records useful for ensuing analyses.
+Supplementing data by appending fields from other sources using one of two approaches:
+one-to-one merger, if each record occurs no more than once in the data,
+one-to-many merger, if each record occurs only once in the data.
+Enhancing data by transforming one or more fields in a data set by changing the format, structure, or values of data in a well-defined systematic manner.
+--- Slide 24 ---
+4.4 Extracting Records
+DATAfile: treadwear (see notes for Excel instructions)
+We can use the filtering tool in Excel to extract records (tires) with the following characteristics:
+tires that are in the left front (LF) position, and
+have tread depth of no more than 2/32nds (2) of an inch.
+Note that all records are still present, but all are hidden except those that satisfy the filters we applied.
+Once the desired records are filtered, we can copy them into a different worksheet for ensuing data analysis.
+--- Slide 25 ---
+4.4 Appending Fields
+DATAfiles: treadwear and treadwearmodels (see notes for Excel instructions)
+We can use the Excel’s XLOOKUP function to append additional fields from a different data set (see Chapter 12 for details on the XLOOKUP formula.)
+In this example, we add the field Model from the file treadwearmodels to each tire record in the treadwear file.
+The figure to the right shows the top nine records of the one-to-many merger added to column F.
+Note that the XLOOKUP function can merge data from multiple worksheets or multiple workbooks.
+--- Slide 26 ---
+4.4 Transforming Fields
+DATAfile: treadwear and treadwearmodels (see notes for Excel instructions)
+We can transform one or more fields in a data set by changing the format, structure, or values of data in a well-defined systematic manner.
+In this example, we add two calculated fields, one quantitative and one categorical:
+In Column G: miles/month.
+In Column H: American-made models (Cadillac, Chevrolet, Chrysler, Dodge, Ford, or Tesla.)
+--- Slide 27 ---
+4.5 Validating Data
+Validating data is similar to cleaning data and it includes
+checking that the information in the wrangled data correctly represents the information provided by the raw data,
+determining that all the fields in the data set have the same definition for all the records.
+DATAfile: treadwear
+In this example, we use the Excel’s Data Validation tool to identify those records having tire tread depth that is (i) negative or (ii) larger than 10/32nds of an inch.
+See notes for Excel instructions.
+--- Slide 28 ---
+4.5 Publishing Data
+In the final publishing step, we make the newly wrangled data available in a location that (i) makes it easy to access and (ii) in a format that is easy to use.
+Data-wrangling software packages are capable of exporting wrangled data in a wide variety of formats, including
+delimited text (txt) files, comma-separated value (CSV) files, JavaScript ObjectNotation (JSON) files, XML files, and Excel (xlsx) files,
+databases such as ACCESS, SQL, or ORACLE, and
+web pages/HTML files.
+A data dictionary documenting several attributes should also be included:
+names, definitions, and units of measure used in the fields, the raw data sources and relationship(s) with other data, and miscellaneous attributes.
+--- Slide 29 ---
+Summary
+We opened this chapter with a definition of data wrangling and proceeded to a detailed discussion of the six steps involved in the data-wrangling process.
+We considered formatting and arranging data, splitting a single field into multiple fields, and combining multiple fields into a single field.
+In our discussion of the cleaning step, we dealt with finding and dealing with missing data, which included methods for data imputation, and identifying erroneous values, outliers, and duplicate records.
+We discussed the enriching step through subsetting, supplementing, and enhancing the raw data by creating new quantitative and categorical fields.
+We concluded by discussing the validating and publishing steps of the data wrangling process.

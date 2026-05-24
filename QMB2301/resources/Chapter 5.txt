@@ -1,0 +1,173 @@
+--- Slide 1 ---
+Business Analytics, 5e
+Chapter 5 – Probability: An Introduction to Modeling Uncertainty
+--- Slide 2 ---
+Chapter Contents
+5.1 	Events and Probabilities
+5.2 	Some Basic Relationships of Probability
+5.3 	Conditional Probability
+5.4 	Random Variables
+5.5 	Discrete Probability Distributions
+5.6 	Continuous Probability Distributions
+Summary
+--- Slide 3 ---
+Learning Objectives (1 of 4)
+After completing this chapter, you will be able to:
+LO 5-1 	Calculate the number of outcomes for random experiments and assign probabilities to outcomes and events.
+LO 5-2 	Calculate and interpret the probability of the complement, the union, and the intersection of events.
+LO 5-3 	Calculate and interpret the conditional probability associated with two events.
+LO 5-4 	Identify and interpret mutually exclusive events and independent events.
+LO 5-5 	Create and interpret joint probability tables.
+--- Slide 4 ---
+Learning Objectives (2 of 4)
+LO 5-6 	Identify and interpret prior and posterior probabilities; apply Bayes’ theorem to calculate posterior probabilities.
+LO 5-7 	Develop valid probability distributions for discrete random variables.
+LO 5-8 	Calculate and interpret the expected value, variance, and standard deviation for discrete random variables.
+LO 5-9 	Identify and use the binomial probability function to compute the probability of a specified number of successes from a given number of trials and the expected value, variance, and standard deviation.
+--- Slide 5 ---
+Learning Objectives (3 of 4)
+LO 5-10 	Identify and use the Poisson probability function to compute the probability of a specified number of occurrences over a given interval and calculate the expected value, variance, and standard deviation of the number of occurrences.
+LO 5-11 	Identify and use the uniform probability distribution to compute the probability that a random variable assumes a value within a specified interval and calculate the expected value, variance, and standard deviation for the random variable.
+LO 5-12 	Identify and use the triangular probability distribution to compute the probability that a random variable assumes a value within a specified interval.
+--- Slide 6 ---
+Learning Objectives (4 of 4)
+LO 5-13 	Identify and use the normal probability distribution to compute the probability that a random variable assumes a value within a specified interval.
+LO 5-14 	Calculate and interpret the value of a random variable corresponding to a specified probability for a normal probability distribution.
+LO 5-15 	Identify and use the exponential probability distribution to compute the probability that a random variable assumes a value within a specified interval.
+--- Slide 7 ---
+Introduction
+Uncertainty is an ever-present fact of life for decision makers.
+Time and effort are spent trying to plan for, and respond to, uncertainty.
+Probability is the numerical measure of the likelihood that an event will occur.
+This measure of uncertainty is often communicated through a probability distribution.
+Probability distributions are extremely helpful in providing additional information about an event.
+They can be used to help a decision maker evaluate possible actions and determine the best course of action.
+--- Slide 8 ---
+5.1 Random Experiment and Sample Space
+--- Slide 9 ---
+5.1 The CP&L Capacity Expansion Project
+California Power & Light Company (CP&L) is starting a project designed to increase the generating capacity of one of its plants in Southern California.
+Based on experience with 40 similar projects, management expects the project to last 8, 9, 10, 11, or 12 months. See table for details.
+Suppose that CP&L wants to complete the project in 10 months or less.
+--- Slide 10 ---
+5.1 Probability of an Event
+--- Slide 11 ---
+5.2 Complement of an Event
+--- Slide 12 ---
+5.2 Union of Two Events
+--- Slide 13 ---
+5.2 Intersection of Two Events
+--- Slide 14 ---
+5.2 Addition Law
+--- Slide 15 ---
+5.2 Application of the Addition Law
+--- Slide 16 ---
+5.2 Mutually Exclusive Events
+--- Slide 17 ---
+5.3 Example About a Crosstabulation
+DATAfile: mortgagedefault
+Lancaster Savings and Loans (S&L) is interested in whether the probability of a customer defaulting on a mortgage differs by marital status. Let
+S = event that a customer is single
+M = event that a customer is married
+D = event that a customer defaulted on their mortgage
+Dc = event that a customer did not default on their mortgage
+The crosstabulation for the two events derived from the Lancaster S&L mortgage data is shown to the right.
+See notes for PivotTable instructions.
+--- Slide 18 ---
+5.3 Joint Probabilities
+--- Slide 19 ---
+5.3 Joint Probability Table
+We can summarize the joint probabilities with a joint probability table by dividing each crosstabulation value by the total of 300 customers.
+At the bottom and right margins of the joint probability table, we find the marginal probabilities, providing the probabilities of each separate event, and calculated as the sums of each joint probabilities’ rows and columns.
+For example, the probability that a customer is married is
+--- Slide 20 ---
+5.3 Conditional Probability
+--- Slide 21 ---
+5.3 Application of Conditional Probabilities
+--- Slide 22 ---
+5.3 Independent Events
+--- Slide 23 ---
+5.3 Multiplication Law
+--- Slide 24 ---
+5.3 Bayes’ Theorem
+--- Slide 25 ---
+5.3 Application of Bayes’ Theorem
+--- Slide 26 ---
+5.3 Posterior Probabilities
+--- Slide 27 ---
+5.3 Bayes’ Theorem with a Probability Tree
+Bayes’ theorem can be visualized with a probability tree. From left to right:
+--- Slide 28 ---
+5.3 Conclusions of the Bayes’ Theorem Application
+--- Slide 29 ---
+5.4 Examples of Discrete Random Variables
+A random variable is a numerical description of an experimental outcome.
+A discrete random variable may assume either a finite number of values or an infinite sequence of values.
+--- Slide 30 ---
+5.4 Examples of Continuous Random Variables
+A continuous random variable may assume any numerical value in an interval or collection of intervals (*see notes.)
+--- Slide 31 ---
+5.5 Discrete Probability Distributions
+--- Slide 32 ---
+5.5 Empirical Probability Distribution
+A probability distribution generated from observations is called an empirical probability distribution.
+An empirical probability distribution is considered a custom discrete probability distribution if
+it is discrete, and
+the possible values of the random variable have different probabilities.
+The probabilities of a custom distribution can be generated using either
+the subjective method or
+the relative frequency method.
+--- Slide 33 ---
+5.5 Custom Discrete Probability Distribution
+--- Slide 34 ---
+5.5 Expected Value
+--- Slide 35 ---
+5.5 Variance and Standard Deviation
+--- Slide 36 ---
+5.5 Excel Calculations for Expected Value, Variance, and Standard Deviation
+--- Slide 37 ---
+5.5 Discrete Uniform Probability Distribution
+--- Slide 38 ---
+5.5 Binomial Probability Distribution
+--- Slide 39 ---
+5.5 Application of the Binomial Probability Distribution
+--- Slide 40 ---
+5.5 Excel Calculations for the Binomial Probability Distribution Application
+--- Slide 41 ---
+5.5 Poisson Probability Distribution
+--- Slide 42 ---
+5.5 Application of the Poisson Probability Distribution
+--- Slide 43 ---
+5.5 Excel Calculations for the Poisson Probability Distribution Application
+*Note that rows 9 to 19 for the Poisson probability calculations are hidden.
+--- Slide 44 ---
+5.6 Continuous Probability Distributions
+--- Slide 45 ---
+5.6 Uniform Probability Distribution
+--- Slide 46 ---
+5.6 Area as a Measure of Cumulative Probability
+--- Slide 47 ---
+5.6 Normal Probability Distribution
+--- Slide 48 ---
+5.6 The Mean of the Normal Distribution
+The normal curve is symmetric, with both areas to the left and to the right of the mean equal to 0.5.
+The tails of the normal curve extend indefinitely in both directions, and theoret­ically never touch the horizontal axis.
+--- Slide 49 ---
+5.6 The Spread of the Normal Distribution
+--- Slide 50 ---
+5.6 Grear Aircraft Engines Example
+--- Slide 51 ---
+5.6 Engine Lifetime Flight Hours Distribution
+--- Slide 52 ---
+5.6 Grear’s Discount Guarantee
+--- Slide 53 ---
+5.6 Exponential Probability Distribution
+--- Slide 54 ---
+5.6 Application of Exponential Distribution
+--- Slide 55 ---
+Summary
+In this chapter, we introduced the concept of probability as a means of understanding and measuring uncertainty.
+We introduced some basic relationships in probability, including the concepts of outcomes, events, and calculations of related probabilities.
+We introduced the concept of conditional probability and discussed how Bayes’ theorem calculates posterior probabilities from prior probabilities.
+We then discussed some of the more common probability distributions related to both discrete and continuous random variables.
+Finally, we discussed the concepts of a random variable's expected value (mean), variance, and standard deviation.
