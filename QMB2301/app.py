@@ -14,16 +14,19 @@ from system_prompt import build_system_prompt
 
 load_dotenv()
 
+# ─── Paths (work both locally and on Streamlit Cloud) ──────────────────────────
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # ─── Page Config ───────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Maya — QMB 2301 Tutor", page_icon="🌟")
 
-MAYA_AVATAR = Image.open(os.path.join("assets", "maya_clean.png"))
+MAYA_AVATAR = Image.open(os.path.join(BASE_DIR, "assets", "maya_clean.png"))
 COOKIE_NAME = "maya_auth"
 
 
 # ─── Helpers ───────────────────────────────────────────────────────────────────
 def load_resources() -> str:
-    files = sorted(glob.glob(os.path.join("resources", "*.txt")))
+    files = sorted(glob.glob(os.path.join(BASE_DIR, "resources", "*.txt")))
     if not files:
         return ""
     parts = []
@@ -40,9 +43,9 @@ def is_within_semester() -> bool:
 
 
 def get_client() -> anthropic.Anthropic:
-    api_key = os.getenv("ANTHROPIC_API_KEY")
+    api_key = os.getenv("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY")
     if not api_key:
-        st.error("ANTHROPIC_API_KEY is not set. Please check your .env file.")
+        st.error("ANTHROPIC_API_KEY is not set.")
         st.stop()
     return anthropic.Anthropic(api_key=api_key)
 
@@ -52,8 +55,9 @@ def get_sheet():
         import gspread
         from google.oauth2.service_account import Credentials
         scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-        if os.path.exists("credentials.json"):
-            creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+        creds_path = os.path.join(BASE_DIR, "credentials.json")
+        if os.path.exists(creds_path):
+            creds = Credentials.from_service_account_file(creds_path, scopes=scopes)
         elif "gcp_service_account" in st.secrets:
             creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scopes)
         else:
