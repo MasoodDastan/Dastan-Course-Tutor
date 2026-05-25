@@ -13,6 +13,9 @@ CLASS_PASSWORD   = "miners2026"   # Change each semester
 START_DATE = date(2026, 6, 8)
 END_DATE   = date(2026, 7, 7)   # One day after final deadline
 
+# ─── Resources (private GitHub repo subfolder for this course) ─────────────────
+RESOURCES_PATH = "QMB2301"
+
 # ─── Model ─────────────────────────────────────────────────────────────────────
 MODEL      = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 1024

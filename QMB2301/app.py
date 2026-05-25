@@ -1,15 +1,18 @@
 import os
 import glob
+import base64
 from datetime import date, datetime
 
 import anthropic
+import requests
 import streamlit as st
 from dotenv import load_dotenv
 import extra_streamlit_components as stx
 from PIL import Image
 
 from config import (CLASS_PASSWORD, COURSE_NAME, END_DATE, INSTRUCTOR,
-                    MAX_TOKENS, MODEL, REQUIRE_PASSWORD, SEMESTER, START_DATE)
+                    MAX_TOKENS, MODEL, REQUIRE_PASSWORD, RESOURCES_PATH,
+                    SEMESTER, START_DATE)
 from system_prompt import build_system_prompt
 
 load_dotenv()
@@ -25,14 +28,33 @@ COOKIE_NAME = "maya_auth"
 
 
 # ─── Helpers ───────────────────────────────────────────────────────────────────
+@st.cache_data(show_spinner=False)
 def load_resources() -> str:
+    token = os.getenv("GITHUB_RESOURCES_TOKEN") or st.secrets.get("GITHUB_RESOURCES_TOKEN", "")
+    repo  = os.getenv("RESOURCES_REPO") or st.secrets.get("RESOURCES_REPO", "MasoodDastan/Dastan-Course-Tutor-Resources")
+
+    if token:
+        headers  = {"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
+        api_url  = f"https://api.github.com/repos/{repo}/contents/{RESOURCES_PATH}"
+        resp     = requests.get(api_url, headers=headers)
+        if resp.ok:
+            files = sorted([f for f in resp.json() if f["name"].endswith(".txt")],
+                           key=lambda x: x["name"])
+            parts = []
+            for f in files:
+                file_resp = requests.get(f["url"], headers=headers)
+                if file_resp.ok:
+                    content = base64.b64decode(file_resp.json()["content"]).decode("utf-8").strip()
+                    if content:
+                        parts.append(f"### {f['name']}\n{content}")
+            return "\n\n".join(parts)
+
+    # fallback: local files (for development)
     files = sorted(glob.glob(os.path.join(BASE_DIR, "resources", "*.txt")))
-    if not files:
-        return ""
     parts = []
     for path in files:
-        with open(path, "r", encoding="utf-8") as f:
-            content = f.read().strip()
+        with open(path, "r", encoding="utf-8") as fh:
+            content = fh.read().strip()
         if content:
             parts.append(f"### {os.path.basename(path)}\n{content}")
     return "\n\n".join(parts)
