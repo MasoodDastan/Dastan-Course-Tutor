@@ -10,12 +10,14 @@ from dotenv import load_dotenv
 import extra_streamlit_components as stx
 from PIL import Image
 
-from config import (CLASS_PASSWORD, COURSE_NAME, END_DATE, INSTRUCTOR,
+from config import (COURSE_NAME, END_DATE, INSTRUCTOR,
                     MAX_TOKENS, MODEL, REQUIRE_PASSWORD, RESOURCES_PATH,
                     SEMESTER, START_DATE)
 from system_prompt import build_system_prompt
 
 load_dotenv()
+
+CLASS_PASSWORD = os.getenv("CLASS_PASSWORD") or st.secrets.get("CLASS_PASSWORD", "")
 
 # ─── Paths (work both locally and on Streamlit Cloud) ──────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

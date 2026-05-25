@@ -7,7 +7,6 @@ INSTRUCTOR  = "Dr. Masood Dastan"
 
 # ─── Access Control ────────────────────────────────────────────────────────────
 REQUIRE_PASSWORD = False          # Set to True to enable password gate
-CLASS_PASSWORD   = "miners2026"   # Change each semester
 
 # ─── Date Range (tutor only works during the semester) ─────────────────────────
 START_DATE = date(2026, 6, 8)
