@@ -9,7 +9,7 @@ INSTRUCTOR  = "Dr. Masood Dastan"
 REQUIRE_PASSWORD = False          # Set to True to enable password gate
 
 # ─── Date Range (tutor only works during the semester) ─────────────────────────
-START_DATE = date(2026, 6, 8)
+START_DATE = date(2026, 5, 25)
 END_DATE   = date(2026, 7, 7)   # One day after final deadline
 
 # ─── Resources (private GitHub repo subfolder for this course) ─────────────────
