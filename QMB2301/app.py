@@ -40,7 +40,7 @@ def load_resources() -> str:
         api_url  = f"https://api.github.com/repos/{repo}/contents/{RESOURCES_PATH}"
         resp     = requests.get(api_url, headers=headers)
         if resp.ok:
-            files = sorted([f for f in resp.json() if f["name"].endswith(".txt")],
+            files = sorted([f for f in resp.json() if f["name"].endswith(".txt") and not f["name"].startswith("lecture_")],
                            key=lambda x: x["name"])
             parts = []
             for f in files:
