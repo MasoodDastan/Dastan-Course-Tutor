@@ -16,5 +16,5 @@ END_DATE   = date(2026, 7, 7)   # One day after final deadline
 RESOURCES_PATH = "QMB2301"
 
 # ─── Model ─────────────────────────────────────────────────────────────────────
-MODEL      = "claude-sonnet-4-5"
+MODEL      = "claude-haiku-4-5-20251001"
 MAX_TOKENS = 1024
