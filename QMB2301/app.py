@@ -200,22 +200,32 @@ st.caption(f"{COURSE_NAME} · {INSTRUCTOR}")
 
 with st.expander("ℹ️ How Maya works", expanded=False):
     st.markdown(
-        "- I only know what Dr. Dastan has shared with me — no outside sources.\n"
-        "- I won't solve graded homework or discuss exam questions.\n"
-        "- I *will* generate practice questions and guide you through problems step by step.\n"
-        "- You can attach a **screenshot** or **Excel/CSV file** using the sidebar.\n"
-        "- For course policy questions, contact Dr. Dastan at sdastan@utep.edu.\n"
-        "- **Conversations may be logged anonymously for course improvement purposes.**"
+        "**What Maya is good at:**\n"
+        "- Answering questions using Dr. Dastan's actual lecture content and examples\n"
+        "- Quick policy questions — due dates, retake rules, grade breakdown\n"
+        "- Generating practice problems and quizzing you on chapters\n"
+        "- Walking through problems with explanations, not just answers\n"
+        "- Analyzing screenshots or Excel files you upload (use the sidebar)\n\n"
+        "**Where Maya has limits:**\n"
+        "- She only knows what Dr. Dastan has shared — not the entire internet\n"
+        "- She won't complete graded assignments or exams for you\n"
+        "- For complex questions outside the course, tools like ChatGPT or Claude may serve you better\n\n"
+        "Think of Maya as your **first stop** — fast, course-specific, always available. "
+        "For everything else, Dr. Dastan's office hours are MTWR 3:30–4:30 pm via Zoom.\n\n"
+        "*Conversations are logged anonymously to help improve Maya over time.*"
     )
 
 # Greeting on fresh session
 if not st.session_state.messages:
     with st.chat_message("assistant", avatar=MAYA_AVATAR):
         st.markdown(
-            "¡Hola! I'm here to help you *understand* the material — not just get the right answer. "
-            "Ask me to explain a concept, quiz you on a chapter, or walk through a problem together. "
-            "You can also attach a screenshot or Excel file using the sidebar. "
-            "What would you like to work on? 😊"
+            "¡Hola! I'm Maya — a tutor built specifically for QMB 2301. "
+            "I know Dr. Dastan's lectures, your syllabus, and the course material inside out.\n\n"
+            "I'm your best resource for **course-specific questions** — concepts from the lectures, "
+            "practice problems, due dates, or policy questions. "
+            "For anything outside this course, other AI tools might serve you better.\n\n"
+            "You can also attach a **screenshot or Excel file** from the sidebar. "
+            "What do you need help with? 😊"
         )
 
 # Chat history
