@@ -251,15 +251,22 @@ if user_input := st.chat_input("Ask Maya a question…"):
 
     with st.chat_message("assistant", avatar=MAYA_AVATAR):
         with st.spinner("Maya is thinking…"):
-            client = get_client()
-            system = build_system_prompt(load_resources())
-            response = client.messages.create(
-                model=MODEL,
-                max_tokens=MAX_TOKENS,
-                system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
-                messages=st.session_state.messages,
-            )
-            reply = response.content[0].text
+            try:
+                client = get_client()
+                system = build_system_prompt(load_resources())
+                response = client.messages.create(
+                    model=MODEL,
+                    max_tokens=MAX_TOKENS,
+                    system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+                    messages=st.session_state.messages,
+                )
+                reply = response.content[0].text
+            except anthropic.RateLimitError:
+                reply = "Maya is a little overwhelmed right now — too many requests at once. Please wait a moment and try again."
+            except anthropic.APIStatusError as e:
+                reply = f"Something went wrong on Maya's end (error {e.status_code}). Please try again in a moment."
+            except Exception:
+                reply = "Maya ran into an unexpected error. Please try again, or contact Dr. Dastan if the problem continues."
         st.markdown(reply)
 
     st.session_state.messages.append({"role": "assistant", "content": reply})
