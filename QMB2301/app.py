@@ -19,7 +19,7 @@ load_dotenv()
 
 CLASS_PASSWORD = os.getenv("CLASS_PASSWORD") or st.secrets.get("CLASS_PASSWORD", "")
 
-# ─── Paths (work both locally and on Streamlit Cloud) ──────────────────────────
+# ─── Paths ─────────────────────────────────────────────────────────────────────
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ─── Page Config ───────────────────────────────────────────────────────────────
@@ -111,7 +111,45 @@ def log_exchange(question: str, answer: str):
         pass
 
 
-# ─── Cookie-based Auth ─────────────────────────────────────────────────────────
+def process_upload(uploaded_file):
+    """Convert uploaded file into an API content block."""
+    if uploaded_file is None:
+        return None
+    name = uploaded_file.name.lower()
+    if name.endswith((".png", ".jpg", ".jpeg")):
+        raw  = uploaded_file.read()
+        data = base64.standard_b64encode(raw).decode("utf-8")
+        mime = "image/png" if name.endswith(".png") else "image/jpeg"
+        return {"type": "image", "source": {"type": "base64", "media_type": mime, "data": data}}
+    if name.endswith((".xlsx", ".xls", ".csv")):
+        import pandas as pd
+        df = pd.read_excel(uploaded_file) if not name.endswith(".csv") else pd.read_csv(uploaded_file)
+        table = df.to_markdown(index=False)
+        return {"type": "text", "text": f"[Uploaded file: {uploaded_file.name}]\n\n{table}"}
+    return None
+
+
+def display_content(content):
+    """Render a message's content — handles both plain strings and block lists."""
+    if isinstance(content, str):
+        st.markdown(content)
+    else:
+        for block in content:
+            if block["type"] == "text":
+                st.markdown(block["text"])
+            elif block["type"] == "image":
+                img_bytes = base64.b64decode(block["source"]["data"])
+                st.image(img_bytes)
+
+
+def text_of(content) -> str:
+    """Extract plain text from content for logging."""
+    if isinstance(content, str):
+        return content
+    return " ".join(b["text"] for b in content if b["type"] == "text")
+
+
+# ─── Session state init ────────────────────────────────────────────────────────
 cookie_manager = stx.CookieManager()
 auth_cookie = cookie_manager.get(COOKIE_NAME)
 
@@ -119,6 +157,8 @@ if "authenticated" not in st.session_state:
     st.session_state.authenticated = (not REQUIRE_PASSWORD) or (auth_cookie == CLASS_PASSWORD)
 if "messages" not in st.session_state:
     st.session_state.messages = []
+if "uploader_key" not in st.session_state:
+    st.session_state.uploader_key = 0
 
 
 # ─── Date Gate ─────────────────────────────────────────────────────────────────
@@ -163,6 +203,7 @@ with st.expander("ℹ️ How Maya works", expanded=False):
         "- I only know what Dr. Dastan has shared with me — no outside sources.\n"
         "- I won't solve graded homework or discuss exam questions.\n"
         "- I *will* generate practice questions and guide you through problems step by step.\n"
+        "- You can attach a **screenshot** or **Excel/CSV file** using the sidebar.\n"
         "- For course policy questions, contact Dr. Dastan at sdastan@utep.edu.\n"
         "- **Conversations may be logged anonymously for course improvement purposes.**"
     )
@@ -173,6 +214,7 @@ if not st.session_state.messages:
         st.markdown(
             "¡Hola! I'm here to help you *understand* the material — not just get the right answer. "
             "Ask me to explain a concept, quiz you on a chapter, or walk through a problem together. "
+            "You can also attach a screenshot or Excel file using the sidebar. "
             "What would you like to work on? 😊"
         )
 
@@ -180,13 +222,22 @@ if not st.session_state.messages:
 for msg in st.session_state.messages:
     avatar = MAYA_AVATAR if msg["role"] == "assistant" else None
     with st.chat_message(msg["role"], avatar=avatar):
-        st.markdown(msg["content"])
+        display_content(msg["content"])
 
 # Chat input
 if user_input := st.chat_input("Ask Maya a question…"):
-    st.session_state.messages.append({"role": "user", "content": user_input})
+    upload_block = process_upload(st.session_state.get("pending_upload"))
+
+    if upload_block:
+        content = [upload_block, {"type": "text", "text": user_input}]
+        st.session_state.uploader_key += 1   # resets the file uploader
+        st.session_state.pending_upload = None
+    else:
+        content = user_input
+
+    st.session_state.messages.append({"role": "user", "content": content})
     with st.chat_message("user"):
-        st.markdown(user_input)
+        display_content(content)
 
     with st.chat_message("assistant", avatar=MAYA_AVATAR):
         with st.spinner("Maya is thinking…"):
@@ -202,7 +253,7 @@ if user_input := st.chat_input("Ask Maya a question…"):
         st.markdown(reply)
 
     st.session_state.messages.append({"role": "assistant", "content": reply})
-    log_exchange(user_input, reply)
+    log_exchange(text_of(content), reply)
 
 # Sidebar
 with st.sidebar:
@@ -211,6 +262,20 @@ with st.sidebar:
     if st.button("Clear conversation"):
         st.session_state.messages = []
         st.rerun()
+    st.divider()
+
+    st.markdown("**📎 Attach a file**")
+    st.caption("Screenshot (PNG/JPG) or spreadsheet (Excel/CSV)")
+    uploaded = st.file_uploader(
+        "Upload",
+        type=["png", "jpg", "jpeg", "xlsx", "xls", "csv"],
+        label_visibility="collapsed",
+        key=f"uploader_{st.session_state.uploader_key}",
+    )
+    if uploaded:
+        st.session_state.pending_upload = uploaded
+        st.success(f"✓ {uploaded.name} ready — type your question and send")
+
     st.divider()
     st.caption(f"Instructor: {INSTRUCTOR}")
     st.caption("sdastan@utep.edu")
