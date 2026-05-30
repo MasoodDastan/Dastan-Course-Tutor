@@ -211,7 +211,7 @@ with st.expander("ℹ️ How Maya works", expanded=False):
         "- She won't complete graded assignments or exams for you\n"
         "- For complex questions outside the course, tools like ChatGPT or Claude may serve you better\n\n"
         "Think of Maya as your **first stop** — fast, course-specific, always available. "
-        "For everything else, Dr. Dastan's office hours are MTWR 3:30–4:30 pm via Zoom.\n\n"
+        "For everything else, Dr. Dastan's office hours are MTWR 2:00–3:00 pm, Room 227, College of Business (COBA).\n\n"
         "*Conversations are logged anonymously to help improve Maya over time.*"
     )
 
