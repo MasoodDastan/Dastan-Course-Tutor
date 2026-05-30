@@ -10,7 +10,7 @@ REQUIRE_PASSWORD = False          # Set to True to enable password gate
 
 # ─── Date Range (tutor only works during the semester) ─────────────────────────
 START_DATE = date(2026, 5, 25)
-END_DATE   = date(2026, 7, 7)   # One day after final deadline
+END_DATE   = date(2026, 7, 8)   # One day after retake deadline (July 7)
 
 # ─── Resources (private GitHub repo subfolder for this course) ─────────────────
 RESOURCES_PATH = "QMB2301"
