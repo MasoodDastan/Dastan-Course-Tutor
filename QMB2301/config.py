@@ -12,7 +12,7 @@ REQUIRE_PASSWORD = False          # Set to True to enable password gate
 # Covers both the 16-week (CRN 10491, retake deadline Dec 10) and 8-week
 # (CRN 18080, retake deadline Oct 13) sections. Set to the later of the two
 # end dates so the longer section isn't cut off early.
-START_DATE = date(2026, 8, 24)
+START_DATE = date(2026, 8, 22)
 END_DATE   = date(2026, 12, 11)   # One day after CRN 10491's retake deadline (Dec 10)
 
 # ─── Resources (private GitHub repo subfolder for this course) ─────────────────
