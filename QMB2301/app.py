@@ -222,16 +222,16 @@ with st.expander("ℹ️ How Maya works", expanded=False):
     st.markdown(
         "**What Maya is good at:**\n"
         "- Answering questions using Dr. Dastan's actual lecture content and examples\n"
-        "- Quick policy questions — due dates, retake rules, grade breakdown\n"
+        "- Quick policy questions — due dates, retake rules, grade breakdown (once you share your syllabus)\n"
         "- Generating practice problems and quizzing you on chapters\n"
         "- Walking through problems with explanations, not just answers\n"
         "- Analyzing screenshots, Excel files, or PDFs/Word docs you upload (use the sidebar) — e.g., your syllabus\n\n"
         "**Where Maya has limits:**\n"
-        "- She only knows what Dr. Dastan has shared — not the entire internet\n"
+        "- She only knows the course materials Dr. Dastan has shared, plus whatever syllabus or schedule info you share with her — not the entire internet\n"
         "- She won't complete graded assignments or exams for you\n"
         "- For complex questions outside the course, tools like ChatGPT or Claude may serve you better\n\n"
         "Think of Maya as your **first stop** — fast, course-specific, always available. "
-        "For everything else, Dr. Dastan's office hours are MTWR 2:00–3:00 pm, Room 227, College of Business (COBA).\n\n"
+        "For everything else, Dr. Dastan's office hours are Mon, Wed, Fri 10:25–11:25 am and 1:30–3:00 pm, Room 227, College of Business (COBA).\n\n"
         "*Conversations are logged anonymously to help improve Maya over time.*"
     )
 
@@ -240,9 +240,9 @@ if not st.session_state.messages:
     with st.chat_message("assistant", avatar=MAYA_AVATAR):
         st.markdown(
             "¡Hola! I'm Maya — a tutor built specifically for QMB 2301. "
-            "I know Dr. Dastan's lectures, your syllabus, and the course material inside out.\n\n"
+            "I know Dr. Dastan's lectures and course material inside out.\n\n"
             "I'm your best resource for **course-specific questions** — concepts from the lectures, "
-            "practice problems, due dates, or policy questions. "
+            "practice problems, or (once you share your syllabus) due dates and policy questions. "
             "For anything outside this course, other AI tools might serve you better.\n\n"
             "You can also attach a **screenshot, Excel file, or a PDF/Word document** (like your syllabus) from the sidebar. "
             "What do you need help with? 😊"
