@@ -126,6 +126,26 @@ def process_upload(uploaded_file):
         df = pd.read_excel(uploaded_file) if not name.endswith(".csv") else pd.read_csv(uploaded_file)
         table = df.to_markdown(index=False)
         return {"type": "text", "text": f"[Uploaded file: {uploaded_file.name}]\n\n{table}"}
+    if name.endswith(".pdf"):
+        from pypdf import PdfReader
+        reader = PdfReader(uploaded_file)
+        text = "\n\n".join((page.extract_text() or "") for page in reader.pages).strip()
+        if not text:
+            text = "(No extractable text found in this PDF — it may be a scan. Try uploading a screenshot instead.)"
+        return {"type": "text", "text": f"[Uploaded file: {uploaded_file.name}]\n\n{text}"}
+    if name.endswith(".docx"):
+        import docx
+        document = docx.Document(uploaded_file)
+        parts = [p.text for p in document.paragraphs if p.text.strip()]
+        for table in document.tables:
+            for row in table.rows:
+                cells = [cell.text.strip() for cell in row.cells]
+                if any(cells):
+                    parts.append(" | ".join(cells))
+        text = "\n".join(parts).strip()
+        if not text:
+            text = "(No extractable text found in this document.)"
+        return {"type": "text", "text": f"[Uploaded file: {uploaded_file.name}]\n\n{text}"}
     return None
 
 
@@ -205,7 +225,7 @@ with st.expander("ℹ️ How Maya works", expanded=False):
         "- Quick policy questions — due dates, retake rules, grade breakdown\n"
         "- Generating practice problems and quizzing you on chapters\n"
         "- Walking through problems with explanations, not just answers\n"
-        "- Analyzing screenshots or Excel files you upload (use the sidebar)\n\n"
+        "- Analyzing screenshots, Excel files, or PDFs/Word docs you upload (use the sidebar) — e.g., your syllabus\n\n"
         "**Where Maya has limits:**\n"
         "- She only knows what Dr. Dastan has shared — not the entire internet\n"
         "- She won't complete graded assignments or exams for you\n"
@@ -224,7 +244,7 @@ if not st.session_state.messages:
             "I'm your best resource for **course-specific questions** — concepts from the lectures, "
             "practice problems, due dates, or policy questions. "
             "For anything outside this course, other AI tools might serve you better.\n\n"
-            "You can also attach a **screenshot or Excel file** from the sidebar. "
+            "You can also attach a **screenshot, Excel file, or a PDF/Word document** (like your syllabus) from the sidebar. "
             "What do you need help with? 😊"
         )
 
@@ -282,10 +302,10 @@ with st.sidebar:
     st.divider()
 
     st.markdown("**📎 Attach a file**")
-    st.caption("Screenshot (PNG/JPG) or spreadsheet (Excel/CSV)")
+    st.caption("Screenshot (PNG/JPG), spreadsheet (Excel/CSV), or document (PDF/Word)")
     uploaded = st.file_uploader(
         "Upload",
-        type=["png", "jpg", "jpeg", "xlsx", "xls", "csv"],
+        type=["png", "jpg", "jpeg", "xlsx", "xls", "csv", "pdf", "docx"],
         label_visibility="collapsed",
         key=f"uploader_{st.session_state.uploader_key}",
     )
